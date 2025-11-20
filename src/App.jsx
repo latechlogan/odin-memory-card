@@ -18,11 +18,10 @@ function App() {
   }, []);
 
   return (
-    <>
-      <h1>App works!</h1>
+    <div className="app">
       <Cards cardData={cardData} />
       <Scores />
-    </>
+    </div>
   );
 }
 

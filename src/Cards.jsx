@@ -1,6 +1,8 @@
+import "./Cards.css";
+
 export default function Cards({ cardData }) {
   return (
-    <div>
+    <div className="card-grid">
       {cardData.map((meme) => {
         return <Card meme={meme} />;
       })}
@@ -10,13 +12,18 @@ export default function Cards({ cardData }) {
 
 function Card({ meme }) {
   return (
-    <div
-      className="card"
-      style={{ width: "200px", height: "auto" }}
-      key={meme.id}
-    >
-      <img src={meme.url} alt={`Meme: ${meme.name}`} />
-      <h2>{meme.name}</h2>
+    <div className="meme-card" key={meme.id}>
+      <div
+        className="meme-card__img-container"
+        style={{ "--meme-url": `url(${meme.url})` }}
+      >
+        <img
+          className="meme-card__img"
+          src={meme.url}
+          alt={`Meme: ${meme.name}`}
+        />
+      </div>
+      {/* <h2 className="meme-card__title">{meme.name}</h2> */}
     </div>
   );
 }
