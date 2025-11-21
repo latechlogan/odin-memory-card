@@ -1,20 +1,20 @@
 import "./Cards.css";
 
-export default function Cards({ cardData }) {
+export default function Cards({ cardData, handleClick }) {
   const shuffledCards = shuffle(cardData);
 
   return (
     <div className="card-grid">
       {shuffledCards.map((meme) => {
-        return <Card meme={meme} />;
+        return <Card meme={meme} handleClick={handleClick} key={meme.id} />;
       })}
     </div>
   );
 }
 
-function Card({ meme }) {
+function Card({ meme, handleClick }) {
   return (
-    <div className="meme-card" key={meme.id}>
+    <div className="meme-card" onClick={handleClick} data-id={meme.id}>
       <div
         className="meme-card__img-container"
         style={{ "--meme-url": `url(${meme.url})` }}

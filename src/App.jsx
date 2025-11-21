@@ -17,9 +17,29 @@ function App() {
       });
   }, []);
 
+  function handleClick(e) {
+    const cardId = e.currentTarget.dataset.id;
+
+    if (clickedCards.has(cardId)) {
+      console.log("big oof!");
+      // reset game, score, etc.
+    } else {
+      addToClickedCards(cardId);
+      // update score
+    }
+  }
+
+  function addToClickedCards(id) {
+    setClickedCards((prevSet) => {
+      const newSet = new Set(prevSet);
+      newSet.add(id);
+      return newSet;
+    });
+  }
+
   return (
     <div className="app">
-      <Cards cardData={cardData} />
+      <Cards cardData={cardData} handleClick={handleClick} />
       <Scores />
     </div>
   );
