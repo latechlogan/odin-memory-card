@@ -25,13 +25,13 @@ function Card({ meme, handleClick }) {
           alt={`Meme: ${meme.name}`}
         />
       </div>
-      {/* <h2 className="meme-card__title">{meme.name}</h2> */}
     </div>
   );
 }
 
 function shuffle(array) {
-  let currentIndex = array.length;
+  let arrayCopy = array;
+  let currentIndex = arrayCopy.length;
   let randomIndex;
 
   // While there remain elements to shuffle.
@@ -41,11 +41,11 @@ function shuffle(array) {
     currentIndex--;
 
     // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
+    [arrayCopy[currentIndex], arrayCopy[randomIndex]] = [
+      arrayCopy[randomIndex],
+      arrayCopy[currentIndex],
     ];
   }
 
-  return array;
+  return arrayCopy;
 }
