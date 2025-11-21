@@ -30,7 +30,7 @@ function Card({ meme, handleClick }) {
 }
 
 function shuffle(array) {
-  let arrayCopy = array;
+  let arrayCopy = [...array];
   let currentIndex = arrayCopy.length;
   let randomIndex;
 
