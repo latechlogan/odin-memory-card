@@ -56,7 +56,7 @@ function App() {
   return (
     <div className="app">
       <Cards cardData={cardData} handleClick={handleClick} />
-      <Scores />
+      <Scores currentScore={currentScore} highScore={highScore} />
     </div>
   );
 }

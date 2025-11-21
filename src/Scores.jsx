@@ -1,7 +1,8 @@
-export default function Scores() {
+export default function Scores({ currentScore, highScore }) {
   return (
-    <>
-      <h2>Scores works!</h2>
-    </>
+    <div>
+      <p>Current Streak: {currentScore}</p>
+      <p>High Streak: {highScore}</p>
+    </div>
   );
 }
