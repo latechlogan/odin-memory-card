@@ -3,4 +3,49 @@
   max-width: 1080px;
   padding: 1rem;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.app__title {
+  font-size: 1.6rem;
+  width: 100%;
+}
+
+.game-meta {
+  padding: 1rem 2rem;
+  margin: 2rem auto;
+  background-color: #f6f6f8;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-meta__copy {
+  margin: 0 0 0 2rem;
+}
+
+.new-game-button {
+  position: relative;
+  color: #fff;
+  line-height: 1.1;
+  font-weight: bold;
+  padding: 1rem;
+  aspect-ratio: 1 / 1;
+  background-color: #b892ff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: #886bbe 0 4px;
+  transition: all 0.08s ease-out;
+}
+
+.new-game-button:active {
+  transform: translateY(2px);
+  box-shadow: #71589e 0 2px;
+  transition: all 0.08s ease-out;
 }
