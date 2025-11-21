@@ -66,3 +66,8 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+html,
+body {
+  font-family: "Spline Sans", sans-serif;
+}
