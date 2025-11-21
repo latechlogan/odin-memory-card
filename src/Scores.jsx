@@ -1,8 +1,10 @@
 export default function Scores({ currentScore, highScore }) {
   return (
     <div>
-      <p>Current Streak: {currentScore}</p>
-      <p>High Streak: {highScore}</p>
+      <p>
+        Meme Streak:&ensp;{currentScore}&emsp;Longest Meme Streak:&ensp;
+        {highScore}
+      </p>
     </div>
   );
 }
