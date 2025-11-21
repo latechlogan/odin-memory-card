@@ -21,11 +21,11 @@ function App() {
     const cardId = e.currentTarget.dataset.id;
 
     if (clickedCards.has(cardId)) {
-      console.log("big oof!");
-      // reset game, score, etc.
+      resetScore();
+      resetClickedCards();
     } else {
       addToClickedCards(cardId);
-      // update score
+      updateScore();
     }
   }
 
@@ -35,6 +35,22 @@ function App() {
       newSet.add(id);
       return newSet;
     });
+  }
+
+  function resetClickedCards() {
+    setClickedCards(new Set());
+  }
+
+  function resetScore() {
+    setCurrentScore(0);
+  }
+
+  function updateScore() {
+    setCurrentScore(currentScore + 1);
+
+    if (currentScore + 1 > highScore) {
+      setHighScore(currentScore + 1);
+    }
   }
 
   return (
