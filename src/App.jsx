@@ -10,6 +10,10 @@ function App() {
   const [highScore, setHighScore] = useState(0);
 
   useEffect(() => {
+    fetchCardData();
+  }, []);
+
+  function fetchCardData() {
     let randomIndex = Math.floor(Math.random() * 40);
 
     fetch("https://api.imgflip.com/get_memes")
@@ -17,14 +21,13 @@ function App() {
       .then((json) => {
         setCardData([...json.data.memes.slice(randomIndex, randomIndex + 12)]);
       });
-  }, []);
+  }
 
   function handleClick(e) {
     const cardId = e.currentTarget.dataset.id;
 
     if (clickedCards.has(cardId)) {
-      resetScore();
-      resetClickedCards();
+      resetGame();
     } else {
       addToClickedCards(cardId);
       updateScore();
@@ -39,12 +42,10 @@ function App() {
     });
   }
 
-  function resetClickedCards() {
-    setClickedCards(new Set());
-  }
-
-  function resetScore() {
+  function resetGame() {
     setCurrentScore(0);
+    setClickedCards(new Set());
+    fetchCardData();
   }
 
   function updateScore() {
@@ -58,7 +59,17 @@ function App() {
   return (
     <div className="app">
       <Cards cardData={cardData} handleClick={handleClick} />
-      <Scores currentScore={currentScore} highScore={highScore} />
+      <div className="game-meta">
+        <button className="new-game-button" onClick={resetGame}>
+          New
+          <br />
+          Game
+        </button>
+        <div className="game-meta__copy">
+          <h1 className="app__title">Meme-ory Match</h1>
+          <Scores currentScore={currentScore} highScore={highScore} />
+        </div>
+      </div>
     </div>
   );
 }
