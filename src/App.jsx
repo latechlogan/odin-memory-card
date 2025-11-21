@@ -10,10 +10,12 @@ function App() {
   const [highScore, setHighScore] = useState(0);
 
   useEffect(() => {
+    let randomIndex = Math.floor(Math.random() * 40);
+
     fetch("https://api.imgflip.com/get_memes")
       .then((res) => res.json())
       .then((json) => {
-        setCardData([...json.data.memes.slice(0, 12)]);
+        setCardData([...json.data.memes.slice(randomIndex, randomIndex + 12)]);
       });
   }, []);
 
